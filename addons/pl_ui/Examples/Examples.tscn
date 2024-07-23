@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://cvtappwtcdgdr"]
+
+[ext_resource type="Theme" uid="uid://bc5pw2sbwd36q" path="res://addons/pl_ui/Theme/Demo_Theme.tres" id="1_4gfu8"]
+[ext_resource type="PackedScene" uid="uid://dd5x727axknqj" path="res://addons/pl_ui/Examples/Carousel_Examples.tscn" id="2_lnc8u"]
+[ext_resource type="PackedScene" uid="uid://piurfv4wfvv3" path="res://Radio_Examples.tscn" id="3_dvqr3"]
+[ext_resource type="PackedScene" uid="uid://dw1vxxlyios12" path="res://addons/pl_ui/Examples/Drag_Examples.tscn" id="4_jiqh4"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_4gfu8")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+offset_left = 575.0
+offset_right = 575.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 2
+offset_right = 1151.95
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 0
+drag_to_rearrange_enabled = true
+
+[node name="CarouselContainer" parent="TabContainer" instance=ExtResource("2_lnc8u")]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="RadioGroup" parent="TabContainer" instance=ExtResource("3_dvqr3")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Draggable" parent="TabContainer" instance=ExtResource("4_jiqh4")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2

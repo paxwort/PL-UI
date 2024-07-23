@@ -1,0 +1,63 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://bc5pw2sbwd36q"]
+
+[ext_resource type="StyleBox" uid="uid://cskhogw8q45be" path="res://addons/pl_ui/Theme/default_style_box_flat.tres" id="1_j74s0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jqloa"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s5d6s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kljsj"]
+bg_color = Color(1, 0.740333, 0.59, 0.505882)
+border_color = Color(0.329158, 0.329158, 0.329158, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6f232"]
+bg_color = Color(0.83, 0.83, 0.83, 0.870588)
+border_color = Color(0.329158, 0.329158, 0.329158, 1)
+corner_radius_bottom_right = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w242b"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.83, 0.83, 0.83, 0.870588)
+border_color = Color(0.329158, 0.329158, 0.329158, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m506h"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.71, 0.71, 0.71, 0.870588)
+border_color = Color(0.329158, 0.329158, 0.329158, 1)
+
+[resource]
+Button/colors/font_color = Color(0.099986, 0.099986, 0.099986, 1)
+Button/colors/font_focus_color = Color(0.099986, 0.099986, 0.099986, 1)
+Button/colors/font_hover_color = Color(0.099986, 0.099986, 0.099986, 1)
+Button/colors/font_hover_pressed_color = Color(0.099986, 0.099986, 0.099986, 1)
+Button/colors/font_outline_color = Color(0.099986, 0.099986, 0.099986, 1)
+Button/colors/font_pressed_color = Color(0.099986, 0.099986, 0.099986, 1)
+Button/styles/normal = ExtResource("1_j74s0")
+CheckBox/styles/normal = SubResource("StyleBoxEmpty_jqloa")
+CheckButton/styles/normal = SubResource("StyleBoxEmpty_s5d6s")
+Label/colors/font_color = Color(0.099986, 0.099986, 0.099986, 1)
+Label/colors/font_outline_color = Color(0.099986, 0.099986, 0.099986, 1)
+OccluderPanel/base_type = &"Panel"
+OccluderPanel/styles/panel = SubResource("StyleBoxFlat_kljsj")
+Panel/styles/panel = ExtResource("1_j74s0")
+RichTextLabel/colors/default_color = Color(0.099986, 0.099986, 0.099986, 1)
+RichTextLabel/colors/font_outline_color = Color(0.099986, 0.099986, 0.099986, 1)
+TabContainer/colors/drop_mark_color = Color(0.0980392, 0.0980392, 0.0980392, 0.592157)
+TabContainer/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+TabContainer/colors/font_hovered_color = Color(0.0980392, 0.0980392, 0.0980392, 0.592157)
+TabContainer/colors/font_outline_color = Color(0.099986, 0.099986, 0.099986, 1)
+TabContainer/colors/font_selected_color = Color(0.099986, 0.099986, 0.099986, 1)
+TabContainer/colors/font_unselected_color = Color(0.0980392, 0.0980392, 0.0980392, 0.592157)
+TabContainer/styles/panel = SubResource("StyleBoxFlat_6f232")
+TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_w242b")
+TabContainer/styles/tab_unselected = SubResource("StyleBoxFlat_m506h")
+TextEdit/colors/caret_color = Color(0.0980392, 0.0980392, 0.0980392, 0.803922)
+TextEdit/colors/font_color = Color(0.099986, 0.099986, 0.099986, 1)
+TextEdit/colors/font_outline_color = Color(0.099986, 0.099986, 0.099986, 1)
+TextEdit/styles/normal = ExtResource("1_j74s0")

@@ -1,0 +1,140 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvtappwtcdgdr"]
+
+[ext_resource type="Script" path="res://Carousel.gd" id="1_0wfim"]
+[ext_resource type="Script" path="res://Example_Carousel_Position_Reporter.gd" id="2_6b7dq"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -23.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Carousel" type="Container" parent="."]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 283.0
+offset_top = 89.0
+offset_right = -154.0
+offset_bottom = -123.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0wfim")
+spacing = 10.0
+animation_distance_cull = 200.0
+
+[node name="Panel" type="Panel" parent="Carousel"]
+custom_minimum_size = Vector2(100, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("2_6b7dq")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Carousel/Panel"]
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 100.0
+bbcode_enabled = true
+text = "[center]1"
+
+[node name="Panel2" type="Panel" parent="Carousel"]
+custom_minimum_size = Vector2(100, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("2_6b7dq")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Carousel/Panel2"]
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 100.0
+bbcode_enabled = true
+text = "[center]1"
+
+[node name="Panel3" type="Panel" parent="Carousel"]
+custom_minimum_size = Vector2(100, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("2_6b7dq")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Carousel/Panel3"]
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 100.0
+bbcode_enabled = true
+text = "[center]1"
+
+[node name="Panel4" type="Panel" parent="Carousel"]
+custom_minimum_size = Vector2(100, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("2_6b7dq")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Carousel/Panel4"]
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 100.0
+bbcode_enabled = true
+text = "[center]1"
+
+[node name="Panel5" type="Panel" parent="Carousel"]
+custom_minimum_size = Vector2(100, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("2_6b7dq")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Carousel/Panel5"]
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 100.0
+bbcode_enabled = true
+text = "[center]1"
+
+[node name="Panel6" type="Panel" parent="Carousel"]
+custom_minimum_size = Vector2(100, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("2_6b7dq")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Carousel/Panel6"]
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 100.0
+bbcode_enabled = true
+text = "[center]1"
+
+[node name="Panel7" type="Panel" parent="Carousel"]
+custom_minimum_size = Vector2(100, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("2_6b7dq")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Carousel/Panel7"]
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 100.0
+bbcode_enabled = true
+text = "[center]1"
+
+[node name="Panel8" type="Panel" parent="Carousel"]
+custom_minimum_size = Vector2(100, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("2_6b7dq")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Carousel/Panel8"]
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 100.0
+bbcode_enabled = true
+text = "[center]1"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 637.0
+offset_top = 78.0
+offset_right = 645.0
+offset_bottom = 86.0

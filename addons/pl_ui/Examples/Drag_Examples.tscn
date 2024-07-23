@@ -1,0 +1,628 @@
+[gd_scene load_steps=24 format=3 uid="uid://dw1vxxlyios12"]
+
+[ext_resource type="Script" path="res://addons/pl_ui/demo_scripts/carousel/carousel_scrollbutton.gd" id="1_oet4l"]
+[ext_resource type="Script" path="res://addons/pl_ui/Classes/PLDrag/pl_drag_target.gd" id="2_58idu"]
+[ext_resource type="Script" path="res://addons/pl_ui/Classes/PLDrag/Dummies/pl_drag_dummy.gd" id="3_4wvd2"]
+[ext_resource type="Script" path="res://addons/pl_ui/Classes/PLDrag/Dummies/pl_drag_dummy_box.gd" id="3_mrn3y"]
+[ext_resource type="Script" path="res://addons/pl_ui/Classes/PLDrag/pl_draggable.gd" id="3_njurb"]
+[ext_resource type="Script" path="res://addons/pl_ui/Classes/pl_carousel_container.gd" id="4_bsh54"]
+[ext_resource type="Script" path="res://addons/pl_ui/Classes/PLDrag/Dummies/pl_drag_dummy_carousel.gd" id="5_p8fvr"]
+[ext_resource type="Script" path="res://addons/pl_ui/Classes/PLDrag/Dummies/pl_drag_dummy_grid.gd" id="8_lago1"]
+[ext_resource type="Script" path="res://addons/pl_ui/demo_scripts/signal_indicator.gd" id="8_rc0b1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m8wt1"]
+bg_color = Color(0, 0, 0, 0.501961)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3rknt"]
+bg_color = Color(0.898578, 0.679819, 0.835866, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6t13f"]
+bg_color = Color(0.472191, 0.812881, 0.934663, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l0fq1"]
+bg_color = Color(0.907307, 0.961367, 0.382936, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ddxgq"]
+bg_color = Color(0.760774, 0.987644, 0.693249, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kpvwb"]
+bg_color = Color(0.982207, 0.734824, 0.515864, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_inl3x"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 0.501961)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_j7xrv"]
+font_size = 18
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8hogt"]
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_07uuw"]
+font_size = 14
+font_color = Color(0.564706, 0.933333, 0.564706, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_w80ak"]
+font_size = 14
+font_color = Color(0.564706, 0.933333, 0.564706, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8jsbf"]
+font_size = 14
+font_color = Color(0.788191, 0.922314, 0.965556, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_h7f6b"]
+font_size = 14
+font_color = Color(0.564706, 0.933333, 0.564706, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4aavm"]
+font_size = 14
+font_color = Color(0.564706, 0.933333, 0.564706, 1)
+
+[node name="DragDemo" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 263.0
+offset_top = 503.0
+offset_right = 776.0
+offset_bottom = 603.0
+
+[node name="Button2" type="Button" parent="HBoxContainer2" node_paths=PackedStringArray("carousel")]
+layout_mode = 2
+text = "<"
+script = ExtResource("1_oet4l")
+scrollspeed = 5.0
+carousel = NodePath("../PLDragTargetCarousel/PLCarouselContainer")
+
+[node name="PLDragTargetCarousel" type="Control" parent="HBoxContainer2"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("2_58idu")
+
+[node name="Panel" type="Panel" parent="HBoxContainer2/PLDragTargetCarousel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer2/PLDragTargetCarousel/Panel"]
+layout_mode = 0
+offset_left = 173.0
+offset_top = 37.0
+offset_right = 335.0
+offset_bottom = 63.0
+text = "Drag to me!"
+fit_content = true
+
+[node name="PLCarouselContainer" type="Container" parent="HBoxContainer2/PLDragTargetCarousel"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_bsh54")
+scroll_infinitely = true
+dynamic_max_index = 0
+
+[node name="PLDragDummyCarousel" type="Control" parent="HBoxContainer2/PLDragTargetCarousel/PLCarouselContainer"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+script = ExtResource("5_p8fvr")
+
+[node name="Line" type="Panel" parent="HBoxContainer2/PLDragTargetCarousel/PLCarouselContainer/PLDragDummyCarousel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_m8wt1")
+
+[node name="Button3" type="Button" parent="HBoxContainer2" node_paths=PackedStringArray("carousel")]
+layout_mode = 2
+text = ">"
+script = ExtResource("1_oet4l")
+scrollspeed = -5.0
+carousel = NodePath("../PLDragTargetCarousel/PLCarouselContainer")
+
+[node name="PLDragTarget" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 4.0
+offset_top = 30.0
+offset_right = 534.0
+offset_bottom = 130.0
+script = ExtResource("2_58idu")
+
+[node name="Panel" type="Panel" parent="PLDragTarget"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PLDragTarget/Panel"]
+layout_mode = 0
+offset_left = 94.0
+offset_top = 35.0
+offset_right = 450.0
+offset_bottom = 81.0
+bbcode_enabled = true
+text = "[center]Rearrange the draggables!"
+fit_content = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PLDragTarget"]
+layout_mode = 1
+offset_right = 525.0
+offset_bottom = 100.0
+
+[node name="PLDragDummyBox" type="Control" parent="PLDragTarget/HBoxContainer"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+script = ExtResource("3_mrn3y")
+
+[node name="Line" type="Panel" parent="PLDragTarget/HBoxContainer/PLDragDummyBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_m8wt1")
+
+[node name="Panel" type="Panel" parent="PLDragTarget/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_direction = 2
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_3rknt")
+script = ExtResource("3_njurb")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PLDragTarget/HBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.0
+offset_top = -10.5
+offset_right = 50.0
+offset_bottom = 12.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+text = "Draggable"
+fit_content = true
+
+[node name="Panel2" type="Panel" parent="PLDragTarget/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_6t13f")
+script = ExtResource("3_njurb")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PLDragTarget/HBoxContainer/Panel2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -10.5
+offset_right = 47.0
+offset_bottom = 12.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+text = "Draggable"
+fit_content = true
+
+[node name="Panel3" type="Panel" parent="PLDragTarget/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_l0fq1")
+script = ExtResource("3_njurb")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PLDragTarget/HBoxContainer/Panel3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -41.0
+offset_top = -10.5
+offset_right = 48.0
+offset_bottom = 12.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+text = "Draggable"
+fit_content = true
+
+[node name="Panel4" type="Panel" parent="PLDragTarget/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_ddxgq")
+script = ExtResource("3_njurb")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PLDragTarget/HBoxContainer/Panel4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -41.0
+offset_top = -10.5
+offset_right = 48.0
+offset_bottom = 12.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+text = "Draggable"
+fit_content = true
+
+[node name="Panel5" type="Panel" parent="PLDragTarget/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_kpvwb")
+script = ExtResource("3_njurb")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PLDragTarget/HBoxContainer/Panel5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -41.0
+offset_top = -10.5
+offset_right = 48.0
+offset_bottom = 12.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+text = "Draggable"
+fit_content = true
+
+[node name="PLDragTarget2" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 7.0
+offset_top = 196.0
+offset_right = 537.0
+offset_bottom = 396.0
+script = ExtResource("2_58idu")
+item_limit = -9223372036854775808
+
+[node name="Panel" type="Panel" parent="PLDragTarget2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PLDragTarget2/Panel"]
+layout_mode = 0
+offset_left = 198.0
+offset_top = 84.0
+offset_right = 360.0
+offset_bottom = 110.0
+text = "Drag to me!"
+fit_content = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PLDragTarget2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PLDragDummyBox" type="Control" parent="PLDragTarget2/HBoxContainer"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+script = ExtResource("3_mrn3y")
+
+[node name="Line" type="Panel" parent="PLDragTarget2/HBoxContainer/PLDragDummyBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_m8wt1")
+
+[node name="PLDragTargetCenter" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 554.0
+offset_top = 196.0
+offset_right = 751.0
+offset_bottom = 396.0
+script = ExtResource("2_58idu")
+item_limit = 1
+
+[node name="Panel" type="Panel" parent="PLDragTargetCenter"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PLDragTargetCenter/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.5
+offset_top = -24.0
+offset_right = 52.5
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+bbcode_enabled = true
+text = "[center]I hold one item only!"
+fit_content = true
+
+[node name="CenterContainer" type="CenterContainer" parent="PLDragTargetCenter"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PLDragDummy" type="Control" parent="PLDragTargetCenter/CenterContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+mouse_filter = 1
+script = ExtResource("3_4wvd2")
+
+[node name="Panel" type="Panel" parent="PLDragTargetCenter/CenterContainer/PLDragDummy"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_inl3x")
+
+[node name="PLDragTargetGrid" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 7.0
+offset_top = 400.0
+offset_right = 204.0
+offset_bottom = 600.0
+script = ExtResource("2_58idu")
+item_limit = 4
+
+[node name="Panel" type="Panel" parent="PLDragTargetGrid"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PLDragTargetGrid/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.5
+offset_top = -24.0
+offset_right = 52.5
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+bbcode_enabled = true
+text = "[center]Grids are fun too I guess"
+fit_content = true
+
+[node name="GridContainer" type="GridContainer" parent="PLDragTargetGrid"]
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+
+[node name="PLDragDummyGrid" type="Control" parent="PLDragTargetGrid/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+mouse_filter = 1
+script = ExtResource("8_lago1")
+
+[node name="Panel" type="Panel" parent="PLDragTargetGrid/GridContainer/PLDragDummyGrid"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_inl3x")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 561.0
+offset_top = 121.0
+offset_right = 742.0
+offset_bottom = 190.0
+bbcode_enabled = true
+text = "[center]Center Container,
+Item Limited
+Default Drag Dummy"
+fit_content = true
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 183.0
+offset_top = 140.0
+offset_right = 364.0
+offset_bottom = 190.0
+bbcode_enabled = true
+text = "[center]HBox Container,
+Box Drag Dummy"
+fit_content = true
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 426.0
+offset_top = 451.0
+offset_right = 607.0
+offset_bottom = 501.0
+bbcode_enabled = true
+text = "[center]PLCarouselContainer,
+Carousel Drag Dummy"
+fit_content = true
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 204.0
+offset_top = 404.0
+offset_right = 348.0
+offset_bottom = 473.0
+bbcode_enabled = true
+text = "[center]GridContainer,
+Default Drag Dummy"
+fit_content = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 819.0
+offset_top = 87.0
+offset_right = 1122.0
+offset_bottom = 577.0
+
+[node name="PLDragTargetLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "PLDragTarget"
+label_settings = SubResource("LabelSettings_j7xrv")
+
+[node name="SignalsLabel2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Signals"
+
+[node name="control_dragged_added" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_8hogt")
+text = "  control_dragged_added(node : Node)"
+label_settings = SubResource("LabelSettings_07uuw")
+text_overrun_behavior = 3
+script = ExtResource("8_rc0b1")
+
+[node name="control_dragged_removed" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_8hogt")
+text = "  control_dragged_removed(node : Node)"
+label_settings = SubResource("LabelSettings_w80ak")
+text_overrun_behavior = 3
+script = ExtResource("8_rc0b1")
+
+[node name="PropsLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Properties"
+
+[node name="selected_index" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_8hogt")
+text = "  max_items : int"
+label_settings = SubResource("LabelSettings_8jsbf")
+text_overrun_behavior = 3
+
+[node name="PLDragTargetLabel2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "PLDraggable"
+label_settings = SubResource("LabelSettings_j7xrv")
+
+[node name="SignalsLabel3" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Signals"
+
+[node name="begun_drag" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_8hogt")
+text = " begun_drag"
+label_settings = SubResource("LabelSettings_h7f6b")
+text_overrun_behavior = 3
+script = ExtResource("8_rc0b1")
+
+[node name="completed_drag" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_8hogt")
+text = " completed_drag"
+label_settings = SubResource("LabelSettings_4aavm")
+text_overrun_behavior = 3
+script = ExtResource("8_rc0b1")
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "Note:[font_size=14]
+PLDragTarget requires a container as a child, with a PLDragDummy inside the container
+
+Be aware of mouse filters: dragging to a PLDragTarget requires that the mouse event was not consumed by any of its children."
+autowrap_mode = 2
+
+[connection signal="control_dragged_added" from="HBoxContainer2/PLDragTargetCarousel" to="VBoxContainer/control_dragged_added" method="recieve_signal"]
+[connection signal="control_dragged_removed" from="HBoxContainer2/PLDragTargetCarousel" to="VBoxContainer/control_dragged_removed" method="recieve_signal"]
+[connection signal="control_dragged_added" from="PLDragTarget" to="VBoxContainer/control_dragged_added" method="recieve_signal"]
+[connection signal="control_dragged_removed" from="PLDragTarget" to="VBoxContainer/control_dragged_removed" method="recieve_signal"]
+[connection signal="begun_drag" from="PLDragTarget/HBoxContainer/Panel" to="VBoxContainer/begun_drag" method="recieve_signal"]
+[connection signal="completed_drag" from="PLDragTarget/HBoxContainer/Panel" to="VBoxContainer/completed_drag" method="recieve_signal"]
+[connection signal="begun_drag" from="PLDragTarget/HBoxContainer/Panel2" to="VBoxContainer/begun_drag" method="recieve_signal"]
+[connection signal="completed_drag" from="PLDragTarget/HBoxContainer/Panel2" to="VBoxContainer/completed_drag" method="recieve_signal"]
+[connection signal="begun_drag" from="PLDragTarget/HBoxContainer/Panel3" to="VBoxContainer/begun_drag" method="recieve_signal"]
+[connection signal="completed_drag" from="PLDragTarget/HBoxContainer/Panel3" to="VBoxContainer/completed_drag" method="recieve_signal"]
+[connection signal="begun_drag" from="PLDragTarget/HBoxContainer/Panel4" to="VBoxContainer/begun_drag" method="recieve_signal"]
+[connection signal="completed_drag" from="PLDragTarget/HBoxContainer/Panel4" to="VBoxContainer/completed_drag" method="recieve_signal"]
+[connection signal="begun_drag" from="PLDragTarget/HBoxContainer/Panel5" to="VBoxContainer/begun_drag" method="recieve_signal"]
+[connection signal="completed_drag" from="PLDragTarget/HBoxContainer/Panel5" to="VBoxContainer/completed_drag" method="recieve_signal"]
+[connection signal="control_dragged_added" from="PLDragTarget2" to="VBoxContainer/control_dragged_added" method="recieve_signal"]
+[connection signal="control_dragged_removed" from="PLDragTarget2" to="VBoxContainer/control_dragged_removed" method="recieve_signal"]
+[connection signal="control_dragged_added" from="PLDragTargetCenter" to="VBoxContainer/control_dragged_added" method="recieve_signal"]
+[connection signal="control_dragged_removed" from="PLDragTargetCenter" to="VBoxContainer/control_dragged_removed" method="recieve_signal"]
+[connection signal="control_dragged_added" from="PLDragTargetGrid" to="VBoxContainer/control_dragged_added" method="recieve_signal"]
+[connection signal="control_dragged_removed" from="PLDragTargetGrid" to="VBoxContainer/control_dragged_removed" method="recieve_signal"]

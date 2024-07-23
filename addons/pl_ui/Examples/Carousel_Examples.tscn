@@ -1,0 +1,1178 @@
+[gd_scene load_steps=29 format=3 uid="uid://dd5x727axknqj"]
+
+[ext_resource type="Script" path="res://addons/pl_ui/demo_scripts/carousel/carousel_scrollbutton.gd" id="1_11m20"]
+[ext_resource type="Theme" uid="uid://bc5pw2sbwd36q" path="res://addons/pl_ui/Theme/Demo_Theme.tres" id="1_cyas0"]
+[ext_resource type="Script" path="res://addons/pl_ui/Classes/pl_carousel_container.gd" id="2_wmbls"]
+[ext_resource type="Script" path="res://addons/pl_ui/demo_scripts/carousel/carousel_autoscroll.gd" id="3_r0wv8"]
+[ext_resource type="Script" path="res://addons/pl_ui/demo_scripts/carousel/carousel_indexer.gd" id="4_i6bsl"]
+[ext_resource type="Script" path="res://addons/pl_ui/demo_scripts/carousel/carousel_itemscaler.gd" id="5_qdxjr"]
+[ext_resource type="Script" path="res://addons/pl_ui/demo_scripts/carousel/carousel_move_to_index.gd" id="6_ufkox"]
+[ext_resource type="Script" path="res://addons/pl_ui/demo_scripts/carousel/carousel_index_selector.gd" id="7_5dmu3"]
+[ext_resource type="Script" path="res://addons/pl_ui/demo_scripts/signal_indicator.gd" id="9_hcei3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l4ve6"]
+bg_color = Color(0.920092, 0.804351, 0.736505, 0.870588)
+border_color = Color(0.329158, 0.329158, 0.329158, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m1aab"]
+bg_color = Color(0.920092, 0.804351, 0.736505, 0.870588)
+border_color = Color(0.329158, 0.329158, 0.329158, 1)
+
+[sub_resource type="Curve" id="Curve_ljsto"]
+min_value = 70.0
+max_value = 140.0
+_data = [Vector2(0, 140), 0.0, 0.0, 0, 0, Vector2(1, 70), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ybhj"]
+bg_color = Color(1, 0.39, 0.400167, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mou1n"]
+bg_color = Color(1, 0.48, 0.2, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ddmre"]
+bg_color = Color(0.954488, 0.743447, 1.15514e-06, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6uksf"]
+bg_color = Color(0.588897, 0.901591, 0.234583, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kl8ek"]
+bg_color = Color(0.275884, 0.76373, 0.986284, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6xy2g"]
+bg_color = Color(0.444176, 0.463715, 0.978639, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u88tc"]
+bg_color = Color(0.884802, 0.440173, 0.888886, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3r71d"]
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_70eg6"]
+bg_color = Color(0.172833, 0.172833, 0.172833, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_8fx4n"]
+font_size = 18
+
+[sub_resource type="LabelSettings" id="LabelSettings_1v1sh"]
+font_color = Color(0.099986, 0.099986, 0.099986, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_522kw"]
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_iefqs"]
+font_size = 14
+font_color = Color(0.564706, 0.933333, 0.564706, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_d3rfq"]
+font_size = 14
+font_color = Color(0.564706, 0.933333, 0.564706, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_k4s43"]
+font_size = 14
+font_color = Color(1, 0.684833, 0.39, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1t670"]
+font_size = 14
+font_color = Color(0.788191, 0.922314, 0.965556, 1)
+
+[node name="Carousel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -23.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_cyas0")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 867.0
+offset_top = 117.0
+offset_right = 983.0
+offset_bottom = 232.0
+bbcode_enabled = true
+text = "
+[center]Carousel can be infinite or bounded"
+fit_content = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 2
+offset_left = 864.0
+offset_top = 23.0
+offset_right = 980.0
+offset_bottom = 138.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "
+[center]Carousel can be vertical or horizontal"
+fit_content = true
+
+[node name="Bounded Scroll" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.024
+anchor_bottom = 1.0
+offset_left = 758.0
+offset_top = 26.0
+offset_right = -295.096
+offset_bottom = -47.0
+
+[node name="Panel2" type="Panel" parent="Bounded Scroll"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_cyas0")
+theme_type_variation = &"OccluderPanel"
+
+[node name="Button2" type="Button" parent="Bounded Scroll/Panel2" node_paths=PackedStringArray("carousel")]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -31.0
+offset_right = 50.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+text = "/\\"
+script = ExtResource("1_11m20")
+scrollspeed = 5.0
+carousel = NodePath("../../PLCarouselContainer")
+
+[node name="PLCarouselContainer" type="Container" parent="Bounded Scroll"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+script = ExtResource("2_wmbls")
+orientation = 1
+separation = 10
+dynamic_max_index = 0
+
+[node name="Panel" type="Panel" parent="Bounded Scroll/PLCarouselContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_l4ve6")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Bounded Scroll/PLCarouselContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[center]First"
+
+[node name="Panel2" type="Panel" parent="Bounded Scroll/PLCarouselContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Panel3" type="Panel" parent="Bounded Scroll/PLCarouselContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Panel4" type="Panel" parent="Bounded Scroll/PLCarouselContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_m1aab")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Bounded Scroll/PLCarouselContainer/Panel4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "
+[center]Last"
+fit_content = true
+
+[node name="Panel3" type="Panel" parent="Bounded Scroll"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"OccluderPanel"
+
+[node name="Button" type="Button" parent="Bounded Scroll/Panel3" node_paths=PackedStringArray("carousel")]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -50.0
+offset_right = 50.0
+offset_bottom = 31.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+text = "\\/"
+script = ExtResource("1_11m20")
+scrollspeed = -5.0
+carousel = NodePath("../../PLCarouselContainer")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 746.0
+offset_bottom = 595.0
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]Items can be of arbitrary size"
+fit_content = true
+
+[node name="Infinite Scroll2" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 2
+
+[node name="Panel2" type="Panel" parent="VBoxContainer/Infinite Scroll2"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_type_variation = &"OccluderPanel"
+
+[node name="Button2" type="Button" parent="VBoxContainer/Infinite Scroll2/Panel2" node_paths=PackedStringArray("carousel")]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -18.0
+offset_top = -50.0
+offset_bottom = 50.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "<"
+script = ExtResource("1_11m20")
+scrollspeed = 5.0
+carousel = NodePath("../../PLCarouselContainer")
+
+[node name="PLCarouselContainer" type="Container" parent="VBoxContainer/Infinite Scroll2"]
+show_behind_parent = true
+clip_contents = true
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+script = ExtResource("2_wmbls")
+separation = 15
+scroll_infinitely = true
+dynamic_max_index = 0
+
+[node name="Panel" type="Panel" parent="VBoxContainer/Infinite Scroll2/PLCarouselContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Infinite Scroll2/PLCarouselContainer/Panel"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+bbcode_enabled = true
+text = "
+[center]Infinite Scroll![/center]"
+
+[node name="Panel2" type="Panel" parent="VBoxContainer/Infinite Scroll2/PLCarouselContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Infinite Scroll2/PLCarouselContainer/Panel2"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+bbcode_enabled = true
+text = "
+[center]Infinite Scroll![/center]"
+
+[node name="Panel3" type="Panel" parent="VBoxContainer/Infinite Scroll2/PLCarouselContainer"]
+custom_minimum_size = Vector2(100, 75)
+layout_mode = 2
+size_flags_vertical = 0
+mouse_filter = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Infinite Scroll2/PLCarouselContainer/Panel3"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+bbcode_enabled = true
+text = "
+[center]Infinite Scroll![/center]"
+
+[node name="Panel4" type="Panel" parent="VBoxContainer/Infinite Scroll2/PLCarouselContainer"]
+custom_minimum_size = Vector2(140, 100)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Infinite Scroll2/PLCarouselContainer/Panel4"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+bbcode_enabled = true
+text = "
+[center]Infinite Scroll![/center]"
+
+[node name="Panel5" type="Panel" parent="VBoxContainer/Infinite Scroll2/PLCarouselContainer"]
+custom_minimum_size = Vector2(100, 75)
+layout_mode = 2
+size_flags_vertical = 8
+mouse_filter = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Infinite Scroll2/PLCarouselContainer/Panel5"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+bbcode_enabled = true
+text = "
+[center]Infinite Scroll![/center]"
+
+[node name="Panel6" type="Panel" parent="VBoxContainer/Infinite Scroll2/PLCarouselContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Infinite Scroll2/PLCarouselContainer/Panel6"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+bbcode_enabled = true
+text = "
+[center]Infinite Scroll![/center]"
+
+[node name="Panel7" type="Panel" parent="VBoxContainer/Infinite Scroll2/PLCarouselContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Infinite Scroll2/PLCarouselContainer/Panel7"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+bbcode_enabled = true
+text = "
+[center]Infinite Scroll![/center]"
+
+[node name="Panel" type="Panel" parent="VBoxContainer/Infinite Scroll2"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_type_variation = &"OccluderPanel"
+
+[node name="Button" type="Button" parent="VBoxContainer/Infinite Scroll2/Panel" node_paths=PackedStringArray("carousel")]
+layout_mode = 2
+offset_right = 18.0
+offset_bottom = 100.0
+grow_vertical = 2
+text = ">"
+script = ExtResource("1_11m20")
+scrollspeed = -5.0
+carousel = NodePath("../../PLCarouselContainer")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Infinite Scroll2/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Autoscroll" type="CheckButton" parent="VBoxContainer/Infinite Scroll2/Panel/VBoxContainer" node_paths=PackedStringArray("carousel")]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0962047, 0.0962048, 0.0962047, 1)
+text = "Autoscroll"
+script = ExtResource("3_r0wv8")
+scrollspeed = -150.0
+carousel = NodePath("../../../PLCarouselContainer")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]Dynamic indexing allows for large sets of items"
+fit_content = true
+
+[node name="Dynamic Indices" type="HBoxContainer" parent="VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 2
+
+[node name="Panel2" type="Panel" parent="VBoxContainer/Dynamic Indices"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_type_variation = &"OccluderPanel"
+
+[node name="Button2" type="Button" parent="VBoxContainer/Dynamic Indices/Panel2" node_paths=PackedStringArray("carousel")]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -18.0
+offset_top = -50.0
+offset_bottom = 50.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "<"
+script = ExtResource("1_11m20")
+scrollspeed = 5.0
+carousel = NodePath("../../PLCarouselContainer")
+
+[node name="PLCarouselContainer" type="Container" parent="VBoxContainer/Dynamic Indices"]
+show_behind_parent = true
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+script = ExtResource("2_wmbls")
+separation = 5
+scroll_infinitely = true
+dynamic_indices = true
+dynamic_max_index = 10000
+
+[node name="Dynamic Index Panel" type="Panel" parent="VBoxContainer/Dynamic Indices/PLCarouselContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+script = ExtResource("4_i6bsl")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Dynamic Indices/PLCarouselContainer/Dynamic Index Panel"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+bbcode_enabled = true
+text = "
+[center]Dynamic![/center]"
+
+[node name="Dynamic Index Panel2" type="Panel" parent="VBoxContainer/Dynamic Indices/PLCarouselContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+script = ExtResource("4_i6bsl")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Dynamic Indices/PLCarouselContainer/Dynamic Index Panel2"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+bbcode_enabled = true
+text = "
+[center]Dynamic![/center]"
+
+[node name="Dynamic Index Panel3" type="Panel" parent="VBoxContainer/Dynamic Indices/PLCarouselContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+script = ExtResource("4_i6bsl")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Dynamic Indices/PLCarouselContainer/Dynamic Index Panel3"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+bbcode_enabled = true
+text = "
+[center]Dynamic![/center]"
+
+[node name="Dynamic Index Panel4" type="Panel" parent="VBoxContainer/Dynamic Indices/PLCarouselContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+script = ExtResource("4_i6bsl")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Dynamic Indices/PLCarouselContainer/Dynamic Index Panel4"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+bbcode_enabled = true
+text = "
+[center]Dynamic![/center]"
+
+[node name="Dynamic Index Panel5" type="Panel" parent="VBoxContainer/Dynamic Indices/PLCarouselContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+script = ExtResource("4_i6bsl")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Dynamic Indices/PLCarouselContainer/Dynamic Index Panel5"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+bbcode_enabled = true
+text = "
+[center]Dynamic![/center]"
+
+[node name="Dynamic Index Panel6" type="Panel" parent="VBoxContainer/Dynamic Indices/PLCarouselContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+script = ExtResource("4_i6bsl")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Dynamic Indices/PLCarouselContainer/Dynamic Index Panel6"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+bbcode_enabled = true
+text = "
+[center]Dynamic![/center]"
+
+[node name="Dynamic Index Panel7" type="Panel" parent="VBoxContainer/Dynamic Indices/PLCarouselContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+script = ExtResource("4_i6bsl")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Dynamic Indices/PLCarouselContainer/Dynamic Index Panel7"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+bbcode_enabled = true
+text = "
+[center]Dynamic![/center]"
+
+[node name="Panel" type="Panel" parent="VBoxContainer/Dynamic Indices"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_type_variation = &"OccluderPanel"
+
+[node name="Button" type="Button" parent="VBoxContainer/Dynamic Indices/Panel" node_paths=PackedStringArray("carousel")]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -50.0
+offset_right = 18.0
+offset_bottom = 50.0
+grow_vertical = 2
+text = ">"
+script = ExtResource("1_11m20")
+scrollspeed = -5.0
+carousel = NodePath("../../PLCarouselContainer")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Dynamic Indices/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Autoscroll" type="CheckButton" parent="VBoxContainer/Dynamic Indices/Panel/VBoxContainer" node_paths=PackedStringArray("carousel")]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0962047, 0.0962048, 0.0962047, 1)
+text = "Autoscroll"
+script = ExtResource("3_r0wv8")
+scrollspeed = -150.0
+carousel = NodePath("../../../PLCarouselContainer")
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]Query position to set size"
+fit_content = true
+
+[node name="Distance from Center" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="VBoxContainer/Distance from Center" node_paths=PackedStringArray("carousel")]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+text = "<"
+script = ExtResource("1_11m20")
+scrollspeed = 5.0
+carousel = NodePath("../PLCarouselContainer")
+
+[node name="PLCarouselContainer" type="Container" parent="VBoxContainer/Distance from Center"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("2_wmbls")
+separation = 5
+scroll_infinitely = true
+dynamic_max_index = 0
+
+[node name="Control" type="Control" parent="VBoxContainer/Distance from Center/PLCarouselContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+script = ExtResource("5_qdxjr")
+size_curve = SubResource("Curve_ljsto")
+max_distance = 600.0
+
+[node name="Child" type="Panel" parent="VBoxContainer/Distance from Center/PLCarouselContainer/Control"]
+custom_minimum_size = Vector2(140, 140)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8ybhj")
+
+[node name="Control2" type="Control" parent="VBoxContainer/Distance from Center/PLCarouselContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+script = ExtResource("5_qdxjr")
+size_curve = SubResource("Curve_ljsto")
+max_distance = 600.0
+
+[node name="Child" type="Panel" parent="VBoxContainer/Distance from Center/PLCarouselContainer/Control2"]
+custom_minimum_size = Vector2(140, 140)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1, 1.00735)
+theme_override_styles/panel = SubResource("StyleBoxFlat_mou1n")
+
+[node name="Control3" type="Control" parent="VBoxContainer/Distance from Center/PLCarouselContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+script = ExtResource("5_qdxjr")
+size_curve = SubResource("Curve_ljsto")
+max_distance = 600.0
+
+[node name="Child" type="Panel" parent="VBoxContainer/Distance from Center/PLCarouselContainer/Control3"]
+custom_minimum_size = Vector2(140, 140)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ddmre")
+
+[node name="Control4" type="Control" parent="VBoxContainer/Distance from Center/PLCarouselContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+script = ExtResource("5_qdxjr")
+size_curve = SubResource("Curve_ljsto")
+max_distance = 600.0
+
+[node name="Child" type="Panel" parent="VBoxContainer/Distance from Center/PLCarouselContainer/Control4"]
+custom_minimum_size = Vector2(140, 140)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6uksf")
+
+[node name="Control5" type="Control" parent="VBoxContainer/Distance from Center/PLCarouselContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+script = ExtResource("5_qdxjr")
+size_curve = SubResource("Curve_ljsto")
+max_distance = 600.0
+
+[node name="Child" type="Panel" parent="VBoxContainer/Distance from Center/PLCarouselContainer/Control5"]
+custom_minimum_size = Vector2(140, 140)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_kl8ek")
+
+[node name="Control6" type="Control" parent="VBoxContainer/Distance from Center/PLCarouselContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+script = ExtResource("5_qdxjr")
+size_curve = SubResource("Curve_ljsto")
+max_distance = 600.0
+
+[node name="Child" type="Panel" parent="VBoxContainer/Distance from Center/PLCarouselContainer/Control6"]
+custom_minimum_size = Vector2(140, 140)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6xy2g")
+
+[node name="Control7" type="Control" parent="VBoxContainer/Distance from Center/PLCarouselContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+script = ExtResource("5_qdxjr")
+size_curve = SubResource("Curve_ljsto")
+max_distance = 600.0
+
+[node name="Child" type="Panel" parent="VBoxContainer/Distance from Center/PLCarouselContainer/Control7"]
+custom_minimum_size = Vector2(140, 140)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_u88tc")
+
+[node name="Button" type="Button" parent="VBoxContainer/Distance from Center" node_paths=PackedStringArray("carousel")]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+text = ">"
+script = ExtResource("1_11m20")
+scrollspeed = -5.0
+carousel = NodePath("../PLCarouselContainer")
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]Jump to an index"
+fit_content = true
+
+[node name="CarouselMoveToIndex" type="HBoxContainer" parent="VBoxContainer" node_paths=PackedStringArray("carousel")]
+layout_mode = 2
+size_flags_horizontal = 4
+script = ExtResource("6_ufkox")
+duration = 1.0
+carousel = NodePath("../Go To/PLCarouselContainer")
+
+[node name="Button" type="Button" parent="VBoxContainer/CarouselMoveToIndex" node_paths=PackedStringArray("carousel")]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+theme_override_styles/disabled = SubResource("StyleBoxFlat_3r71d")
+theme_override_styles/normal = SubResource("StyleBoxFlat_70eg6")
+script = ExtResource("7_5dmu3")
+carousel = NodePath("../../Go To/PLCarouselContainer")
+
+[node name="Button2" type="Button" parent="VBoxContainer/CarouselMoveToIndex" node_paths=PackedStringArray("carousel")]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+theme_override_styles/disabled = SubResource("StyleBoxFlat_3r71d")
+theme_override_styles/normal = SubResource("StyleBoxFlat_70eg6")
+script = ExtResource("7_5dmu3")
+carousel = NodePath("../../Go To/PLCarouselContainer")
+
+[node name="Button3" type="Button" parent="VBoxContainer/CarouselMoveToIndex" node_paths=PackedStringArray("carousel")]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+theme_override_styles/disabled = SubResource("StyleBoxFlat_3r71d")
+theme_override_styles/normal = SubResource("StyleBoxFlat_70eg6")
+script = ExtResource("7_5dmu3")
+carousel = NodePath("../../Go To/PLCarouselContainer")
+
+[node name="Button4" type="Button" parent="VBoxContainer/CarouselMoveToIndex" node_paths=PackedStringArray("carousel")]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+theme_override_styles/disabled = SubResource("StyleBoxFlat_3r71d")
+theme_override_styles/normal = SubResource("StyleBoxFlat_70eg6")
+script = ExtResource("7_5dmu3")
+carousel = NodePath("../../Go To/PLCarouselContainer")
+
+[node name="Button5" type="Button" parent="VBoxContainer/CarouselMoveToIndex" node_paths=PackedStringArray("carousel")]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+theme_override_styles/disabled = SubResource("StyleBoxFlat_3r71d")
+theme_override_styles/normal = SubResource("StyleBoxFlat_70eg6")
+script = ExtResource("7_5dmu3")
+carousel = NodePath("../../Go To/PLCarouselContainer")
+
+[node name="Button6" type="Button" parent="VBoxContainer/CarouselMoveToIndex" node_paths=PackedStringArray("carousel")]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+theme_override_styles/disabled = SubResource("StyleBoxFlat_3r71d")
+theme_override_styles/normal = SubResource("StyleBoxFlat_70eg6")
+script = ExtResource("7_5dmu3")
+carousel = NodePath("../../Go To/PLCarouselContainer")
+
+[node name="Button7" type="Button" parent="VBoxContainer/CarouselMoveToIndex" node_paths=PackedStringArray("carousel")]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+theme_override_styles/disabled = SubResource("StyleBoxFlat_3r71d")
+theme_override_styles/normal = SubResource("StyleBoxFlat_70eg6")
+script = ExtResource("7_5dmu3")
+carousel = NodePath("../../Go To/PLCarouselContainer")
+
+[node name="Button8" type="Button" parent="VBoxContainer/CarouselMoveToIndex" node_paths=PackedStringArray("carousel")]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+theme_override_styles/disabled = SubResource("StyleBoxFlat_3r71d")
+theme_override_styles/normal = SubResource("StyleBoxFlat_70eg6")
+script = ExtResource("7_5dmu3")
+carousel = NodePath("../../Go To/PLCarouselContainer")
+
+[node name="Button9" type="Button" parent="VBoxContainer/CarouselMoveToIndex" node_paths=PackedStringArray("carousel")]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+theme_override_styles/disabled = SubResource("StyleBoxFlat_3r71d")
+theme_override_styles/normal = SubResource("StyleBoxFlat_70eg6")
+script = ExtResource("7_5dmu3")
+carousel = NodePath("../../Go To/PLCarouselContainer")
+
+[node name="Button10" type="Button" parent="VBoxContainer/CarouselMoveToIndex" node_paths=PackedStringArray("carousel")]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+theme_override_styles/disabled = SubResource("StyleBoxFlat_3r71d")
+theme_override_styles/normal = SubResource("StyleBoxFlat_70eg6")
+script = ExtResource("7_5dmu3")
+carousel = NodePath("../../Go To/PLCarouselContainer")
+
+[node name="Go To" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="PLCarouselContainer" type="Container" parent="VBoxContainer/Go To"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("2_wmbls")
+separation = 5
+scroll_infinitely = true
+dynamic_max_index = 0
+
+[node name="Indexed" type="Panel" parent="VBoxContainer/Go To/PLCarouselContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Go To/PLCarouselContainer/Indexed"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "
+[center]Index 0"
+
+[node name="Indexed2" type="Panel" parent="VBoxContainer/Go To/PLCarouselContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Go To/PLCarouselContainer/Indexed2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "
+[center]Index 1"
+
+[node name="Indexed3" type="Panel" parent="VBoxContainer/Go To/PLCarouselContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Go To/PLCarouselContainer/Indexed3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "
+[center]Index 2"
+
+[node name="Indexed4" type="Panel" parent="VBoxContainer/Go To/PLCarouselContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Go To/PLCarouselContainer/Indexed4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "
+[center]Index 3"
+
+[node name="Indexed5" type="Panel" parent="VBoxContainer/Go To/PLCarouselContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Go To/PLCarouselContainer/Indexed5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "
+[center]Index 4"
+
+[node name="Indexed6" type="Panel" parent="VBoxContainer/Go To/PLCarouselContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Go To/PLCarouselContainer/Indexed6"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "
+[center]Index 5"
+
+[node name="Indexed7" type="Panel" parent="VBoxContainer/Go To/PLCarouselContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Go To/PLCarouselContainer/Indexed7"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "
+[center]Index 6"
+
+[node name="Indexed8" type="Panel" parent="VBoxContainer/Go To/PLCarouselContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Go To/PLCarouselContainer/Indexed8"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "
+[center]Index 7"
+
+[node name="Indexed9" type="Panel" parent="VBoxContainer/Go To/PLCarouselContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Go To/PLCarouselContainer/Indexed9"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "
+[center]Index 8"
+
+[node name="Indexed10" type="Panel" parent="VBoxContainer/Go To/PLCarouselContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Go To/PLCarouselContainer/Indexed10"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "
+[center]Index 9"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 864.0
+offset_top = 219.0
+offset_right = 1144.0
+offset_bottom = 590.0
+
+[node name="PLDragTargetLabel" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+text = "PLCarouselContainer"
+label_settings = SubResource("LabelSettings_8fx4n")
+
+[node name="SignalsLabel" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+text = "Signals"
+label_settings = SubResource("LabelSettings_1v1sh")
+
+[node name="control_changed_index" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_522kw")
+text = "  control_changed_index(control : Control, index : int)"
+label_settings = SubResource("LabelSettings_iefqs")
+text_overrun_behavior = 3
+script = ExtResource("9_hcei3")
+
+[node name="index_reached_center" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_522kw")
+text = "  index_reached_center( index : int)"
+label_settings = SubResource("LabelSettings_d3rfq")
+text_overrun_behavior = 3
+script = ExtResource("9_hcei3")
+
+[node name="PropsLabel" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+text = "Methods"
+label_settings = SubResource("LabelSettings_1v1sh")
+
+[node name="method" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_522kw")
+text = "  scroll(distance : float)
+"
+label_settings = SubResource("LabelSettings_k4s43")
+text_overrun_behavior = 3
+
+[node name="method2" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_522kw")
+text = "  get_distance_to_center(control : Control)
+"
+label_settings = SubResource("LabelSettings_k4s43")
+text_overrun_behavior = 3
+
+[node name="method3" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_522kw")
+text = "  get_index_distance_to_center(index : int)
+"
+label_settings = SubResource("LabelSettings_k4s43")
+text_overrun_behavior = 3
+
+[node name="method4" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_522kw")
+text = "  get_control_at_index(index : int)"
+label_settings = SubResource("LabelSettings_k4s43")
+text_overrun_behavior = 3
+
+[node name="PropsLabel2" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+text = "Properties"
+label_settings = SubResource("LabelSettings_1v1sh")
+
+[node name="orientation2" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_522kw")
+text = "  orientation : CarouselOrientation
+"
+label_settings = SubResource("LabelSettings_1t670")
+text_overrun_behavior = 3
+
+[node name="separation2" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_522kw")
+text = "  separation : int
+"
+label_settings = SubResource("LabelSettings_1t670")
+text_overrun_behavior = 3
+
+[node name="scroll_inf2" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_522kw")
+text = "  scroll_infinitely : bool
+"
+label_settings = SubResource("LabelSettings_1t670")
+text_overrun_behavior = 3
+
+[node name="dyn_idx2" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_522kw")
+text = "  dynamic_indices : bool
+"
+label_settings = SubResource("LabelSettings_1t670")
+text_overrun_behavior = 3
+
+[node name="max_idx2" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_522kw")
+text = "  dynamic_max_index : int
+"
+label_settings = SubResource("LabelSettings_1t670")
+text_overrun_behavior = 3
+
+[connection signal="control_changed_index" from="Bounded Scroll/PLCarouselContainer" to="VBoxContainer2/control_changed_index" method="recieve_signal"]
+[connection signal="control_changed_index" from="VBoxContainer/Infinite Scroll2/PLCarouselContainer" to="VBoxContainer2/control_changed_index" method="recieve_signal"]
+[connection signal="control_changed_index" from="VBoxContainer/Dynamic Indices/PLCarouselContainer" to="VBoxContainer2/control_changed_index" method="recieve_signal"]
+[connection signal="control_changed_index" from="VBoxContainer/Distance from Center/PLCarouselContainer" to="VBoxContainer2/control_changed_index" method="recieve_signal"]
+[connection signal="control_changed_index" from="VBoxContainer/Go To/PLCarouselContainer" to="VBoxContainer2/control_changed_index" method="recieve_signal"]

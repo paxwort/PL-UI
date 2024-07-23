@@ -1,0 +1,219 @@
+[gd_scene load_steps=10 format=3 uid="uid://piurfv4wfvv3"]
+
+[ext_resource type="Theme" uid="uid://bc5pw2sbwd36q" path="res://addons/pl_ui/Theme/Demo_Theme.tres" id="1_f6g00"]
+[ext_resource type="Script" path="res://addons/pl_ui/Classes/pl_radio_group.gd" id="2_7fr4l"]
+[ext_resource type="Script" path="res://addons/pl_ui/demo_scripts/radiocontrol/display_index.gd" id="3_wx35i"]
+[ext_resource type="Script" path="res://addons/pl_ui/demo_scripts/signal_indicator.gd" id="4_wi1l8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_d0jgp"]
+font_size = 18
+
+[sub_resource type="LabelSettings" id="LabelSettings_k6vtt"]
+font_color = Color(0.099986, 0.099986, 0.099986, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qftot"]
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_rpycc"]
+font_size = 14
+font_color = Color(0.564706, 0.933333, 0.564706, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hkgc3"]
+font_size = 14
+font_color = Color(0.788191, 0.922314, 0.965556, 1)
+
+[node name="RadioDemo" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_f6g00")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 218.0
+offset_top = 136.0
+offset_right = 608.0
+offset_bottom = 470.0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]RadioGroup accepts any kind of button"
+fit_content = true
+
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="PLRadioGroup" type="Control" parent="HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+script = ExtResource("2_7fr4l")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer2/PLRadioGroup"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CheckButton2" type="CheckButton" parent="HBoxContainer/VBoxContainer2/PLRadioGroup/VBoxContainer"]
+layout_mode = 2
+button_pressed = true
+text = "CheckButton"
+
+[node name="CheckBox" type="CheckBox" parent="HBoxContainer/VBoxContainer2/PLRadioGroup/VBoxContainer"]
+layout_mode = 2
+text = "Checkbox"
+
+[node name="Button" type="Button" parent="HBoxContainer/VBoxContainer2/PLRadioGroup/VBoxContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_vertical = 4
+text = "Button"
+
+[node name="CheckBox2" type="CheckBox" parent="HBoxContainer/VBoxContainer2/PLRadioGroup/VBoxContainer"]
+layout_mode = 2
+text = "Checkbox"
+
+[node name="CheckButton" type="CheckButton" parent="HBoxContainer/VBoxContainer2/PLRadioGroup/VBoxContainer"]
+layout_mode = 2
+text = "CheckButton"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]Selection:
+[font_size=24][color=goldenrod]0"
+fit_content = true
+script = ExtResource("3_wx35i")
+
+[node name="Control" type="Control" parent="HBoxContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]And emits the selected index"
+fit_content = true
+
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="PLRadioGroup" type="Control" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+script = ExtResource("2_7fr4l")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/PLRadioGroup"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CheckButton3" type="CheckButton" parent="HBoxContainer/VBoxContainer/PLRadioGroup/VBoxContainer2"]
+layout_mode = 2
+button_pressed = true
+text = "0"
+alignment = 2
+
+[node name="CheckButton4" type="CheckButton" parent="HBoxContainer/VBoxContainer/PLRadioGroup/VBoxContainer2"]
+layout_mode = 2
+text = "1"
+alignment = 2
+
+[node name="CheckButton2" type="CheckButton" parent="HBoxContainer/VBoxContainer/PLRadioGroup/VBoxContainer2"]
+layout_mode = 2
+text = "2"
+alignment = 2
+
+[node name="CheckButton5" type="CheckButton" parent="HBoxContainer/VBoxContainer/PLRadioGroup/VBoxContainer2"]
+layout_mode = 2
+text = "3"
+alignment = 2
+
+[node name="CheckButton6" type="CheckButton" parent="HBoxContainer/VBoxContainer/PLRadioGroup/VBoxContainer2"]
+layout_mode = 2
+text = "4"
+alignment = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]Selection:
+[font_size=24][color=goldenrod]0"
+fit_content = true
+script = ExtResource("3_wx35i")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 757.0
+offset_top = 87.0
+offset_right = 994.0
+offset_bottom = 540.0
+
+[node name="PLDragTargetLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "PLRadioGroup"
+label_settings = SubResource("LabelSettings_d0jgp")
+
+[node name="SignalsLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Signals"
+label_settings = SubResource("LabelSettings_k6vtt")
+
+[node name="index_selected" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_qftot")
+text = "  index_selected(index : int)"
+label_settings = SubResource("LabelSettings_rpycc")
+text_overrun_behavior = 3
+script = ExtResource("4_wi1l8")
+
+[node name="PropsLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Properties"
+label_settings = SubResource("LabelSettings_k6vtt")
+
+[node name="selected_index" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_qftot")
+text = "  selected_index : int"
+label_settings = SubResource("LabelSettings_hkgc3")
+text_overrun_behavior = 3
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "Note:[font_size=14]
+Buttons should not be
+direct children of PLRadioGroup.
+
+Instead, place any Container within the control, and make the buttons the children of that container."
+autowrap_mode = 2
+
+[connection signal="selection_changed" from="HBoxContainer/VBoxContainer2/PLRadioGroup" to="HBoxContainer/VBoxContainer2/RichTextLabel3" method="_on_index_changed"]
+[connection signal="selection_changed" from="HBoxContainer/VBoxContainer2/PLRadioGroup" to="VBoxContainer/index_selected" method="recieve_signal"]
+[connection signal="selection_changed" from="HBoxContainer/VBoxContainer/PLRadioGroup" to="HBoxContainer/VBoxContainer/RichTextLabel" method="_on_index_changed"]
+[connection signal="selection_changed" from="HBoxContainer/VBoxContainer/PLRadioGroup" to="VBoxContainer/index_selected" method="recieve_signal"]

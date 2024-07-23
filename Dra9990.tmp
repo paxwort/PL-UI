@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://dw1vxxlyios12"]
+
+[ext_resource type="Script" path="res://Classes/pl_drag_control.gd" id="1_e3gis"]
+
+[node name="DragDemo" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 138.0
+offset_bottom = 47.0
+script = ExtResource("1_e3gis")
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 0
+offset_top = 54.0
+offset_right = 138.0
+offset_bottom = 101.0
+script = ExtResource("1_e3gis")
+
+[node name="Panel3" type="Panel" parent="."]
+layout_mode = 0
+offset_top = 108.0
+offset_right = 138.0
+offset_bottom = 155.0
+script = ExtResource("1_e3gis")
